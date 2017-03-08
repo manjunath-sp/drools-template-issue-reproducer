@@ -1,0 +1,82 @@
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>drools.template.compiler</groupId>
+	<artifactId>drools.template.compiler.bundle</artifactId>
+	<packaging>bundle</packaging> 
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
+		<org.jboss.drools.version>6.4.0.Final</org.jboss.drools.version>
+		<com.google.guava.version>18.0</com.google.guava.version>
+		<karaf.features.version>3.0.3</karaf.features.version>
+		<pax.exam.version>4.5.0</pax.exam.version>
+		
+		<osgi.core.version>4.3.1</osgi.core.version>
+		<osgi.compendium.version>4.3.0</osgi.compendium.version>
+		
+		<apache.servicemix.version>2.5.0</apache.servicemix.version>
+		<apache.geronimo.specs.version>1.1.1</apache.geronimo.specs.version>
+		<apache.aries.version>1.1.0</apache.aries.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>${osgi.core.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>${osgi.compendium.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${org.jboss.drools.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>${org.jboss.drools.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-decisiontables</artifactId>
+			<version>${org.jboss.drools.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-templates</artifactId>
+			<version>${org.jboss.drools.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven.bundle.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Name>${project.artifactId}</Bundle-Name>
+						<Bundle-Version>${project.version}</Bundle-Version>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
